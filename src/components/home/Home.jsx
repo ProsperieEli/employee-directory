@@ -3,18 +3,21 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { signInUser, signUpUser, signOutUser } from "../../services/Users";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useUser } from "../context/UserContext";
 
 export default function Home() {
+  const { setUser } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (signUpUser) {
-      const newMember = signUpUser(email, password);
-      setEmail(newMember);
+    const newMember = await signUpUser(email, password);
+    if (newMember) {
+      setUser(newMember);
       history.replace("/list");
     }
   };

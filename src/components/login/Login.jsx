@@ -2,18 +2,20 @@ import React from "react";
 import { signInUser } from "../../services/Users";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
+  const { setUser } = useUser("");
   const [password, setPassword] = useState("");
   const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (signInUser) {
-      const returningMember = signInUser(email, password);
-      setEmail(returningMember);
+    const returningMember = signInUser(email, password);
+    if (returningMember) {
+      setUser(returningMember);
       history.replace("/list");
     }
   };
