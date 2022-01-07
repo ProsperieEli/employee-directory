@@ -3,6 +3,7 @@ import { signInUser } from "../../services/Users";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useUser } from "../context/UserContext";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -10,14 +11,12 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const returningMember = signInUser(email, password);
-    if (returningMember) {
-      setUser(returningMember);
-      history.replace("/list");
-    }
+    const returningMember = await signInUser(email, password);
+    setUser(returningMember);
+    history.replace("/profile");
   };
   return (
     <div>
@@ -37,6 +36,9 @@ export default function Login() {
         />
         <button>Log in</button>
       </form>
+      <p>
+        <Link to="/">Don't have an Account? Sign Up here!</Link>
+      </p>
     </div>
   );
 }

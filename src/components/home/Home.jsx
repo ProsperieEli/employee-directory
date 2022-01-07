@@ -16,10 +16,8 @@ export default function Home() {
     e.preventDefault();
 
     const newMember = await signUpUser(email, password);
-    if (newMember) {
-      setUser(newMember);
-      history.replace("/list");
-    }
+    setUser(newMember);
+    history.replace("/profile");
   };
   return (
     <div>
