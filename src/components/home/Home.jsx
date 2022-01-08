@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { signInUser, signUpUser, signOutUser } from "../../services/Users";
+import { signUpUser } from "../../services/Users";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useUser } from "../context/UserContext";
 

@@ -4,16 +4,16 @@ import { getProfile } from "../../services/Profiles";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 import { useUser } from "../../components/context/UserContext";
 
 export default function EditProfile() {
   const history = useHistory("");
-  const [email, setEmail] = useState("");
+
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
   const [birthday, setBirthday] = useState("");
-  const [profile, setProfile] = useState({});
+
   const { user } = useUser();
 
   const handleSubmit = async (e) => {
@@ -25,8 +25,9 @@ export default function EditProfile() {
       bio,
       birthday,
     });
-    setProfile(changeProfile);
-    history.replace("/profile");
+    if (changeProfile) {
+      history.replace("/profile");
+    }
   };
 
   useEffect(() => {
