@@ -5,8 +5,7 @@ import { ProfileProvider } from "../src/components/context/ProfileContext";
 import { MemoryRouter } from "react-router-dom";
 
 test("renders learn react link", () => {
-  const { container } = render;
-  render(
+  const { container } = render(
     <MemoryRouter initialEntries={["/"]}>
       <UserProvider>
         <ProfileProvider>
