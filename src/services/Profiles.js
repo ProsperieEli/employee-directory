@@ -1,4 +1,4 @@
-import { client, parseData } from "./client";
+import { client, parseData } from "./Client";
 
 export async function getProfile() {
   const request = await client.from("profiles").select().single();

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<div>
+  <div>
+    <header>
+      <p>
+        Not signed in
+      </p>
+      <a
+        href="/login"
+      >
+        <button>
+          Sign In
+        </button>
+      </a>
+    </header>
+  </div>
+  <div>
+    <h1>
+      Welcome Employee!
+    </h1>
+    <form>
+      <input
+        id="email"
+        type="email"
+        value=""
+      />
+      <input
+        id="password"
+        type="password"
+        value=""
+      />
+      <button>
+        Sign up
+      </button>
+    </form>
+    <a
+      href="/login"
+    >
+      Already have an account? Login here!
+    </a>
+  </div>
+</div>
+`;
